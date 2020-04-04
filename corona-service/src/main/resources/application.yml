@@ -1,0 +1,22 @@
+
+spring:
+  application:
+    name: corona-service
+
+server:
+  port: 6060
+  servlet:
+    context-path: /corona-service
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://root:ccmanager@localhost:8761/eureka/
+
+logging:
+  level:
+#    com:
+#      netflix: DEBUG
+    org:
+      springframework:
+        cloud: DEBUG

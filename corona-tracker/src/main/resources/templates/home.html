@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Coronavirus Tracker Application</title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+</head>
+
+<body>
+<div class="container">
+<h1>COVID-19 TRACKER</h1>
+<h4>Show compassion. Be considerate. Help those in need. We will get through this!</h4>
+
+    <div class="jumbotron">
+
+        <div style="display:inline;">
+            <span class="display-4" th:text="${usaData.countryName}"></span>&nbsp;&nbsp;&nbsp;
+            <span class="display-4" th:text="${usaData.cases}"></span>&nbsp;&nbsp;&nbsp;
+            <span><h2 style="display:inline;">(Total Cases)</h2></span>&nbsp;&nbsp;&nbsp;
+        </div>
+
+        <p>&nbsp;</p>
+        <p>
+            <span>Death: </span>
+            <span th:text="${usaData.death}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>Total Recovered: </span>
+            <span th:text="${usaData.totalRecovered}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>New Death: </span>
+            <span th:text="${usaData.newDeath}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>New Cases: </span>
+            <span th:text="${usaData.newCases}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>Critical Condition: </span>
+            <span th:text="${usaData.seriousCritical}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>Active Cases: </span>
+            <span th:text="${usaData.activeCases}"></span>&nbsp;&nbsp;&nbsp;
+        </p>
+
+        <hr class="my-4">
+
+        <div style="display:inline;">
+            <span class="display-4" th:text="${indiaData.countryName}"></span>&nbsp;&nbsp;&nbsp;
+            <span class="display-4" th:text="${indiaData.cases}"></span>&nbsp;&nbsp;&nbsp;
+            <span><h2 style="display:inline;">(Total Cases)</h2></span>&nbsp;&nbsp;&nbsp;
+        </div>
+
+        <p>&nbsp;</p>
+        <p>
+            <span>Death: </span>
+            <span th:text="${indiaData.death}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>Total Recovered: </span>
+            <span th:text="${indiaData.totalRecovered}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>New Death: </span>
+            <span th:text="${indiaData.newDeath}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>New Cases: </span>
+            <span th:text="${indiaData.newCases}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>Critical Condition: </span>
+            <span th:text="${indiaData.seriousCritical}"></span>&nbsp;&nbsp;&nbsp;
+
+            <span>Active Cases: </span>
+            <span th:text="${indiaData.activeCases}"></span>&nbsp;&nbsp;&nbsp;
+        </p>
+    </div>
+
+    <table class="table">
+        <tr>
+            <th>Country</th>
+            <th>Total Cases</th>
+            <th>Death</th>
+            <th>Total Recovered</th>
+        </tr>
+        <tr th:each="data : ${countryData}">
+            <td th:text="${data.countryName}"></td>
+            <td th:text="${data.cases}"></td>
+            <td th:text="${data.death}">0</td>
+            <td th:text="${data.totalRecovered}">0</td>
+        </tr>
+    </table>
+</div>
+</body>
+
+</html>
